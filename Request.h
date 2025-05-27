@@ -2,7 +2,7 @@
 
 #include "enums_typedef.h"
 
-enum req_type {NEWORDER, MODORDER, CANCEL, NONE};
+enum class req_type {NEWORDER, MODORDER, CANCEL, NONE};
 
 struct Request{
     OrderId m_order_id = 0;

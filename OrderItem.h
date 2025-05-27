@@ -2,7 +2,7 @@
 
 #include "enums_typedef.h"
 
-enum order_state {PENDING_NEW,PENDING_CANCEL,PENDING_MODIFY,CONFIRMED,NONE};
+enum class order_state {PENDING_NEW,PENDING_CANCEL,PENDING_MODIFY,CONFIRMED,NONE};
 
 struct OrderItem{
     OrderId m_id = 0;

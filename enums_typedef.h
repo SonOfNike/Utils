@@ -1,8 +1,8 @@
 #pragma once
 
-enum exchange {NYSE = 1, NASD, ARCA, BATS, EDGX, EDGA};
+enum class exchange {NYSE = 1, NASD, ARCA, BATS, EDGX, EDGA};
 
-enum side {BUY, SELL, NONE};
+enum class side {BUY, SELL, NONE};
 
 typedef int Price;
 typedef int Shares;
