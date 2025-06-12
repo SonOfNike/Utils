@@ -10,5 +10,6 @@ struct MDupdate{
     Shares m_bid_quant = 0;
     Shares m_ask_quant = 0;
     Timestamp m_timestamp = 0;
+    SymbolId m_symbolId = 0;
     md_type m_type = md_type::NONE;
 };
