@@ -13,7 +13,7 @@ SymbolIDManager* SymbolIDManager::getInstance(){
 void SymbolIDManager::startUp(){
     next_id = 0;
     simdjson::dom::parser parser;
-    simdjson::dom::element doc = parser.load("symbols.json");
+    simdjson::dom::element doc = parser.load("/home/git_repos/Utils/symbols.json");
     for(auto symbol : doc["symbols"])
     {
         string_to_id[symbol] = next_id;
