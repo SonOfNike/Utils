@@ -9,5 +9,6 @@ struct Request{
     Shares m_order_quant = 0;
     Shares m_total_fills = 0;
     OrderId m_order_id = 0;
+    SymbolId m_symbolId = 0;
     req_type m_type = req_type::NONE;
 };
