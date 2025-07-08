@@ -9,5 +9,6 @@ struct Response{
     Shares m_resp_quant = 0;
     OrderId m_order_id = 0;
     SymbolId m_symbolId = 0;
+    side m_side = side::NONE;
     resp_type m_type = resp_type::NONE;
 };

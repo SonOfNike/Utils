@@ -11,4 +11,13 @@ struct Request{
     OrderId m_order_id = 0;
     SymbolId m_symbolId = 0;
     req_type m_type = req_type::NONE;
+
+    void clear(){
+        m_req_price = 0;
+        m_order_quant = 0;
+        m_total_fills = 0;
+        m_order_id = 0;
+        m_symbolId = 0;
+        m_type = req_type::NONE;
+    }
 };
