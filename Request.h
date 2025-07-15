@@ -10,6 +10,7 @@ struct Request{
     Shares m_total_fills = 0;
     OrderId m_order_id = 0;
     SymbolId m_symbolId = 0;
+    side m_order_side = side::NONE;
     req_type m_type = req_type::NONE;
 
     void clear(){
@@ -18,6 +19,7 @@ struct Request{
         m_total_fills = 0;
         m_order_id = 0;
         m_symbolId = 0;
+        m_order_side = side::NONE;
         m_type = req_type::NONE;
     }
 };

@@ -11,4 +11,13 @@ struct Response{
     SymbolId m_symbolId = 0;
     side m_side = side::NONE;
     resp_type m_type = resp_type::NONE;
+
+    void clear(){
+        m_resp_price = 0;
+        m_resp_quant = 0;
+        m_order_id = 0;
+        m_symbolId = 0;
+        m_side = side::NONE;
+        m_type = resp_type::NONE;
+    }
 };

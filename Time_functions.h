@@ -25,5 +25,20 @@ Timestamp parse_timestring(std::string_view time_string){
     result += stringViewToInt(time_string.substr(14,2)).value() * MINUTES;
     result += stringViewToInt(time_string.substr(17,2)).value() * SECONDS;
 
+    if(string_size > 29){
+        result += stringViewToInt(time_string.substr(20,3)).value() * MILLI_SECONDS;
+        result += stringViewToInt(time_string.substr(23,3)).value() * MICRO_SECONDS;
+        result += stringViewToInt(time_string.substr(26,3)).value();
+    }
+    else if(string_size > 26){
+        result += stringViewToInt(time_string.substr(20,3)).value() * MILLI_SECONDS;
+        result += stringViewToInt(time_string.substr(23,3)).value() * MICRO_SECONDS;
+        // result += stringViewToInt(time_string.substr(26,string_size - 26)).value();
+    }
+    else if(string_size > 23){
+        result += stringViewToInt(time_string.substr(20,3)).value() * MILLI_SECONDS;
+        // result += stringViewToInt(time_string.substr(23,string_size - 23)).value() * MICRO_SECONDS;
+    }
+
     return result;
 }
