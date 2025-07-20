@@ -3,11 +3,11 @@
 #include "enums_typedef.h"
 #include <unordered_map>
 #include <string_view>
+#include <string>
 
 class SymbolIDManager {
 private:
-    std::unordered_map<std::string_view, SymbolId> string_to_id;
-    std::unordered_map<SymbolId ,std::string_view> id_to_string;
+    std::unordered_map<SymbolId ,std::string> id_to_string;
 
     SymbolId next_id = 0;
 
@@ -15,9 +15,12 @@ private:
     SymbolIDManager(){;}
 
 public:
+    std::unordered_map<std::string, SymbolId> string_to_id;
+
     static SymbolIDManager* getInstance();
     void startUp();
     void shutDown();
+    SymbolId getID(std::string _ticker);
     SymbolId getID(std::string_view _ticker);
-    std::string_view getTicker(SymbolId _sym_id);
+    std::string getTicker(SymbolId _sym_id);
 };

@@ -16,8 +16,8 @@ void SymbolIDManager::startUp(){
     simdjson::dom::element doc = parser.load("/home/git_repos/Utils/symbols.json");
     for(auto symbol : doc["symbols"])
     {
-        string_to_id[symbol] = next_id;
-        id_to_string[next_id] = symbol;
+        string_to_id[std::string(symbol)] = next_id;
+        id_to_string[next_id] = std::string(symbol);
         next_id++;
     }
 }
@@ -26,10 +26,14 @@ void SymbolIDManager::shutDown(){
     
 }
 
-SymbolId SymbolIDManager::getID(std::string_view _ticker){
+SymbolId SymbolIDManager::getID(std::string _ticker){
     return string_to_id[_ticker];
 }
 
-std::string_view SymbolIDManager::getTicker(SymbolId _sym_id){
+SymbolId SymbolIDManager::getID(std::string_view _ticker){
+    return string_to_id[std::string(_ticker)];
+}
+
+std::string SymbolIDManager::getTicker(SymbolId _sym_id){
     return id_to_string[_sym_id];
 }
