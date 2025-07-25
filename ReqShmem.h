@@ -6,5 +6,6 @@
 struct ReqShmem{
     int32_t next_write_index = 0;
     int32_t next_write_page = 0;
+    OrderId next_order_id = 0;
     Request m_queue[REQ_QUEUE_SIZE];
 };
