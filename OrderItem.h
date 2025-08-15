@@ -11,6 +11,7 @@ public:
     Shares m_order_quant = 0;
     Shares m_total_fills = 0;
     OrderId m_id = 0;
+    Timestamp m_timestamp = 0;
     side m_side = side::NONE;
     order_state m_state = order_state::NONE;
 
@@ -23,9 +24,25 @@ public:
         m_state = order_state::NONE;
     }
 
-    void processResp(const Response& _new_response){
+    void processResp(const Response& _new_response, const Timestamp& _current_time, LogItem& newLog, ShmemManager* mShmemManager){
         if(_new_response.m_type == resp_type::NEWORDER_CONFIRM){
             m_state = order_state::CONFIRMED;
+
+            if(_current_time - m_timestamp > 500000000){
+            // std::cout << "Order Latency=" << _current_time - m_timestamp << 
+            // "|CurrentTime=" << _current_time << "\n";
+                // char buf[128];
+                // int n = snprintf(buf, sizeof(buf), "Order Latency=%u|CurrentTime=%u", _current_time - m_timestamp, _current_time);
+                // FastLogger::getInstance()->log(_tlog->tb, buf);
+
+                newLog.clear();
+
+                newLog.m_type = log_type::ORDERDELAY;
+                newLog.m_current_time = _current_time;
+                newLog.m_delay = _current_time - m_timestamp;
+
+                mShmemManager->pushLog(newLog);
+            }
         }
         else if(_new_response.m_type == resp_type::MODORDER_CONFIRM){
             m_order_price = _new_response.m_resp_price;
@@ -33,6 +50,22 @@ public:
             m_state = order_state::CONFIRMED;
         }
         else if(_new_response.m_type == resp_type::CANCEL_CONFIRM){
+            if(_current_time - m_timestamp > 500000000){
+            // std::cout << "Order Latency=" << _current_time - m_timestamp << 
+            // "|CurrentTime=" << _current_time << "\n";
+                // char buf[128];
+                // int n = snprintf(buf, sizeof(buf), "Order Latency=%u|CurrentTime=%u", _current_time - m_timestamp, _current_time);
+                // FastLogger::getInstance()->log(_tlog->tb, buf);
+
+                newLog.clear();
+
+                newLog.m_type = log_type::ORDERDELAY;
+                newLog.m_current_time = _current_time;
+                newLog.m_delay = _current_time - m_timestamp;
+
+                mShmemManager->pushLog(newLog);
+            }
+
             clear();
         }
         else if(_new_response.m_type == resp_type::TRADE_CONFIRM){
