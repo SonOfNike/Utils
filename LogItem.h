@@ -7,6 +7,7 @@ enum class log_type {ORDERDELAY, MDDELAY, TRADE, TRIGGER, NONE};
 struct LogItem{
     Price m_price = 0;
     Price m_price2 = 0;
+    Price m_price3 = 0;
     Timestamp m_current_time = 0;
     Timestamp m_delay = 0;
     Shares m_shares = 0;
