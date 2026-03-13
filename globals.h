@@ -6,9 +6,9 @@ static const Price CENTS = 100;
 static const Price DOLLAR = 100 * CENTS;
 static const int32_t MD_QUEUE_SIZE = 4096;
 static const int32_t LOG_QUEUE_SIZE = 2048;
-static const int32_t RESP_QUEUE_SIZE = 1024;
-static const int32_t ERROR_QUEUE_SIZE = 1024;
-static const int32_t REQ_QUEUE_SIZE = 1024;
+static const int32_t RESP_QUEUE_SIZE = 512;
+static const int32_t ERROR_QUEUE_SIZE = 256;
+static const int32_t REQ_QUEUE_SIZE = 512;
 
 static const Timestamp MICRO_SECONDS = 1000;
 static const Timestamp MILLI_SECONDS = 1000 * MICRO_SECONDS;

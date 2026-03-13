@@ -2,16 +2,17 @@
 
 #include "enums_typedef.h"
 
-enum class req_type {NEWORDER, MODORDER, CANCEL, NONE};
+enum class req_type {NEWORDER, MODORDER, CANCEL, GETETB, NONE};
 
 struct Request{
     Price m_req_price = 0;
+    MyOrderId m_order_id = 0;
     Shares m_order_quant = 0;
     Shares m_total_fills = 0;
-    OrderId m_order_id = 0;
     SymbolId m_symbolId = 0;
     side m_order_side = side::NONE;
     req_type m_type = req_type::NONE;
+    order_type m_order_type = order_type::NONE;
 
     void clear(){
         m_req_price = 0;
@@ -21,5 +22,6 @@ struct Request{
         m_symbolId = 0;
         m_order_side = side::NONE;
         m_type = req_type::NONE;
+        m_order_type = order_type::NONE;
     }
 };

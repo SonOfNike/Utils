@@ -8,12 +8,13 @@ enum class order_state {PENDING_NEW,PENDING_CANCEL,PENDING_MODIFY,CONFIRMED,NONE
 class OrderItem{
 public:
     Price m_order_price = 0;
+    MyOrderId m_id = 0;
+    Timestamp m_timestamp = 0;
     Shares m_order_quant = 0;
     Shares m_total_fills = 0;
-    OrderId m_id = 0;
-    Timestamp m_timestamp = 0;
     side m_side = side::NONE;
     order_state m_state = order_state::NONE;
+    order_type m_type = order_type::NONE;
 
     void clear(){
         m_order_price = 0;
@@ -22,6 +23,7 @@ public:
         m_id = 0;
         m_side = side::NONE;
         m_state = order_state::NONE;
+        m_type = order_type::NONE;
     }
 
     void processResp(const Response& _new_response, const Timestamp& _current_time, LogItem& newLog, ShmemManager* mShmemManager){
