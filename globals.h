@@ -21,3 +21,8 @@ static const char* RESP_shm_name = "/resp_shared_memory";
 static const char* ERROR_shm_name = "/error_shared_memory";
 static const char* REQ_shm_name = "/req_shared_memory";
 static const char* LOG_shm_name = "/log_shared_memory";
+
+static const char* IBRESP_shm_name = "/IBresp_shared_memory";
+static const char* IBERROR_shm_name = "/IBerror_shared_memory";
+static const char* IBREQ_shm_name = "/IBreq_shared_memory";
+static const char* IBLOG_shm_name = "/IBlog_shared_memory";

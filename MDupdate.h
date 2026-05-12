@@ -2,7 +2,7 @@
 
 #include "enums_typedef.h"
 
-enum class md_type {PRINT, NYSEOPEN, NASDOPEN, IMBALANCE, QUOTE, BID, ASK, NONE};
+enum class md_type {PRINT, NYSEOPEN, NASDOPEN, IMBALANCE, SIGIMB, QUOTE, BID, ASK, NONE};
 
 struct MDupdate{
     Price m_bid_price = 0;

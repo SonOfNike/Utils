@@ -4,7 +4,7 @@
 
 enum class exchange {NYSE = 1, NASD, ARCA, BATS, EDGX, EDGA};
 
-enum class order_type {VISIBLEARCA, VISIBLENYSE, HIDDENNASD, NONE};
+enum class order_type {VISIBLESMART, HIDDENSMART, NYSEVISIBLESMART, SMARTIOC, NYSEMOC, NONE};
 
 enum class side {BUY, SELL, NONE};
 
