@@ -4,7 +4,7 @@
 
 enum class log_type {ORDERDELAY, MDDELAY, NASDOPEN, NYSEOPEN, TRADE, TRIGGER, IMBALANCE, NONE};
 
-struct LogItem{
+struct alignas(64) LogItem{
     Price m_price = 0;
     Price m_price2 = 0;
     Timestamp m_current_time = 0;

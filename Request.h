@@ -4,7 +4,7 @@
 
 enum class req_type {NEWORDER, MODORDER, CANCEL, GETETB, NONE};
 
-struct Request{
+struct alignas(64) Request{
     Price m_req_price = 0;
     MyOrderId m_order_id = 0;
     Shares m_order_quant = 0;

@@ -4,7 +4,7 @@
 
 enum class resp_type {NEWORDER_CONFIRM, MODORDER_CONFIRM, CANCEL_CONFIRM, TRADE_CONFIRM, ORDER_REJECT, CANCEL_REJECT, MOD_REJECT, ETB_INFO, NONE};
 
-struct Response{
+struct alignas(64) Response{
     Price m_resp_price = 0;
     MyOrderId m_order_id = 0;
     Shares m_resp_quant = 0;

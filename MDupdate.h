@@ -4,7 +4,7 @@
 
 enum class md_type {PRINT, NYSEOPEN, NASDOPEN, IMBALANCE, SIGIMB, QUOTE, BID, ASK, NONE};
 
-struct MDupdate{
+struct alignas(64) MDupdate{
     Price m_bid_price = 0;
     Price m_ask_price = 0;
     Timestamp m_timestamp = 0;

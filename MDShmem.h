@@ -4,8 +4,12 @@
 #include "MDupdate.h"
 #include <atomic>
 
-struct MDShmem{
+struct MDSlot{
     std::atomic<int32_t> next_write_index = 0;
     int32_t next_write_page = 0;
     MDupdate m_queue[MD_QUEUE_SIZE];
+};
+
+struct MDShmem{
+    MDSlot slot[TRADE_WTHREADS];
 };
